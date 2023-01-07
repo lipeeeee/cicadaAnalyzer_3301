@@ -11,7 +11,7 @@
 
 // Value
 char value[MAX_LENGTH_VALUE] = "";
-int valueIsDigit = 0;
+int valueIsDigit = 0; // bool flag
 
 // Entry point
 int main(int argc, char const *argv[])
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
     if (fastAnalyze == 1){
         strcpy(value, argv[1]);
         valueIsDigit = strIsDigit(value);
-        
+
         printf("%s", &value);
         printf("\n%d", valueIsDigit);
     }

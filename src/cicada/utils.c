@@ -1,4 +1,5 @@
 #include <string.h>
+#include <ctype.h>
 
 // Fast analyze happens when a number is passed through cmd arguments
 // returns boolean flag
@@ -12,7 +13,7 @@ int strIsDigit(char *str) {
     int result = 1;
 
     for (int i = 0; i < strLen && result == 1; i++) {
-        if (str[i] < '0' || str[i] > '9')
+        if (!isdigit(str[i]))
             result = 0;
     }
     

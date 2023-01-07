@@ -6,8 +6,7 @@
 #include "cicada/analyze.h"
 /*
     Program made to help analyze a given string/number for LiberPrimus
-    Compiling and executing with gcc: gcc main.c utils.c
-                                      ./a.exe
+    Compiling and executing with gcc: gcc main.c cicada/*.c -o a.exe
 */
 
 #define MAX_LENGTH_VALUE 500
@@ -28,9 +27,17 @@ int main(int argc, char const *argv[]) {
     
     do {
         system("cls");
+        
         printf("VALUE: ");
         fflush(stdin);  // Flush the input buffer
         fgets(value, MAX_LENGTH_VALUE, stdin);
+        
+        // Null-terminate string
+        // TODO
+        int length = strlen(value);
+        if (value[length - 1] == '\n') {
+            value[length - 1] = '\0';
+        }
 
         analyzeValue(value);
         getchar();

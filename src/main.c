@@ -30,17 +30,16 @@ int main(int argc, char const *argv[]) {
         
         printf("VALUE: ");
         fflush(stdin);  // Flush the input buffer
-        fgets(value, MAX_LENGTH_VALUE, stdin);
-        
-        // Null-terminate string
-        // TODO
-        int length = strlen(value);
-        if (value[length - 1] == '\n') {
-            value[length - 1] = '\0';
-        }
+        if(fgets(value, MAX_LENGTH_VALUE, stdin) != NULL) {
+            // Null-terminate the string
+            value[strcspn(value, "\n")] = '\0';
+            /*printf("\nYou entered: %s\n", value);
+            printf("Length of the string: %lu\n", strlen(value));*/
 
-        analyzeValue(value);
-        getchar();
+            analyzeValue(value);
+            getchar();
+        } else 
+            printf("The input stream has reached the end-of-file.\n");
     } while (strncmp(value, "0", 1) != 0);
 
     return 3301; // 0

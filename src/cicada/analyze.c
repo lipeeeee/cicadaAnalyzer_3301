@@ -14,7 +14,6 @@ void analyzeNumber(int num) {
 
 void analyzeValue(char* value) {
     int valueIsDigit = strIsDigit(value);
-    printf("%d", valueIsDigit);
 
     if (valueIsDigit == 1) {
         analyzeNumber(atoi(value));

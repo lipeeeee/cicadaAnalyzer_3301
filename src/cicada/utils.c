@@ -10,6 +10,9 @@ int checkFastAnalyze(int *argc) {
 // Checks if a string is a digit
 int strIsDigit(char *str) {
     int strLen = strlen(str);
+    if (strLen == 0)
+        return 0;
+        
     int result = 1;
 
     for (int i = 0; i < strLen && result == 1; i++) {

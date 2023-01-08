@@ -1,8 +1,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "prime.h"
-#include "utils.h"
+#include "cicada/cicada.h"
+#include "main.h"
 
 void analyzeString(char* str) {
 

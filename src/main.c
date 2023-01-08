@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cicada/utils.h"
-#include "cicada/prime.h"
-#include "cicada/analyze.h"
+#include "cicada/cicada.h"
+#include "main.h"
+
 /*
     Program made to help analyze a given string/number for LiberPrimus
-    Compiling and executing with gcc: gcc main.c cicada/*.c -o a.exe
+    Compiling and executing with gcc: gcc ./*.c cicada/*.c -o a.exe
 */
 
 #define MAX_LENGTH_VALUE 500

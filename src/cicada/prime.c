@@ -1,5 +1,5 @@
 #include <math.h>
-#include "utils.h"
+#include "../main.h"
 
 int isPrime(int *num) {
     int result = 1;

@@ -1,5 +1,6 @@
 #include <string.h>
 #include <ctype.h>
+#include "main.h"
 
 // Fast analyze happens when a number is passed through cmd arguments
 // returns boolean flag

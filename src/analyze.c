@@ -4,6 +4,11 @@
 #include "cicada/cicada.h"
 #include "main.h"
 
+/*
+    File to help with organizing code and keeping
+    main file clean.
+*/
+
 void analyzeString(char* str) {
 
 }

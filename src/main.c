@@ -12,25 +12,29 @@
 #define MAX_LENGTH_VALUE 500
 
 // Entry point
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     char value[MAX_LENGTH_VALUE] = "";
     value[MAX_LENGTH_VALUE - 1] = '\0';
-    
+
     // Check if fast analyze
     int fastAnalyze = checkFastAnalyze(&argc);
-    if (fastAnalyze == 1){
+    if (fastAnalyze == 1)
+    {
         system("cls");
         strcpy(value, argv[1]);
         analyzeValue(value);
         getchar();
     }
-    
-    do {
+
+    do
+    {
         system("cls");
-        
+
         printf("VALUE: ");
-        fflush(stdin);  // Flush the input buffer
-        if(fgets(value, MAX_LENGTH_VALUE, stdin) != NULL) {
+        fflush(stdin); // Flush the input buffer
+        if (fgets(value, MAX_LENGTH_VALUE, stdin) != NULL)
+        {
             // Null-terminate the string
             value[strcspn(value, "\n")] = '\0';
             /*printf("\nYou entered: %s\n", value);
@@ -38,7 +42,8 @@ int main(int argc, char const *argv[]) {
 
             analyzeValue(value);
             getchar();
-        } else 
+        }
+        else
             printf("The input stream has reached the end-of-file.\n");
     } while (strncmp(value, "0", 1) != 0);
 

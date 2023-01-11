@@ -9,30 +9,45 @@
     main.c file clean.
 */
 
-void analyzeString(char *str)
+// Compute blake2b hash to hexString
+char *computeHash(char *str)
 {
-    // BLAKE2b-512 Hash
     size_t input_str_len = strlen(str);
+
+    // computed hash
     unsigned char hash[BLAKE2B_OUTBYTES];
+    char *hex_hash = malloc(BLAKE2B_OUTBYTES * 2 + 1);
     int ret = blake2b(hash, BLAKE2B_OUTBYTES, str, input_str_len, NULL, 0);
 
     if (ret == 0)
     {
-        printf("BLAKE2b-512: ");
+        // convert the hash to hex string
         for (int i = 0; i < BLAKE2B_OUTBYTES; i++)
-            printf("%02x", hash[i]);
-
-        printf("\n");
-
-        // Check for the deepweb hash
-        if (strncmp((char *)hash, DEEPWEB_HASH, BLAKE2B_OUTBYTES) == 0)
         {
-            printf("FOUND DWH((This line of code will never be executed\n");
+            sprintf(hex_hash + (i * 2), "%02x", hash[i]);
         }
     }
     else
     {
-        printf("BLAKE2b-512: Error occurred while hashing the string\n");
+        printf("Error occurred while hashing the string\n");
+    }
+
+    return hex_hash;
+    free(hex_hash); 
+}
+
+void analyzeString(char *str)
+{
+    // Analyzing blake2b hash function
+    char *hex_hash = computeHash(str);
+
+    printf("Blake2B: %s\n", hex_hash);
+
+    // compare the hex string and the computed hash
+    if (strcmp(hex_hash, DEEPWEB_HASH) == 0)
+    {
+        printf("The hash matches the deepweb hash!!\n");
+        printf("Notify someone in the cicadaSolvers discord immediatly with this string: %s", str);
     }
 }
 

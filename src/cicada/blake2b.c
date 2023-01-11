@@ -5,6 +5,10 @@
 #include "cicada.h"
 #include "blake2-impl.h"
 
+/*
+    BLAKE2B-512bit HASH FUNCTION IMPLEMENTATION
+*/
+
 static const uint64_t blake2b_IV[8] =
     {
         0x6a09e667f3bcc908ULL, 0xbb67ae8584caa73bULL,

@@ -19,8 +19,8 @@ struct GematriaLetter
 };
 
 // constructor for the struct
-struct GematriaLetter *new_GematriaLetter(int order, const char *letter, char rune, 
-int value, int atbash_value, char atbash_rune, const char *atbash_letter, int atbash_order)
+struct GematriaLetter *new_GematriaLetter(int order, const char *letter, char rune,
+                                          int value, int atbash_value, char atbash_rune, const char *atbash_letter, int atbash_order)
 {
     struct GematriaLetter *res = (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter));
     res->order = order;
@@ -39,17 +39,18 @@ int value, int atbash_value, char atbash_rune, const char *atbash_letter, int at
 }
 
 // Building Gematria
-struct GematriaLetter *gemAlphabet /*= (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter) * 29);*/;
+struct GematriaLetter *gemAlphabet /*= (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter) * 32);*/;
 
 void init_gematria_alphabet()
 {
     // initialize the alphabet
-    gemAlphabet = (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter) * 32); // 29
+    gemAlphabet = (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter) * 33); // 29
 
     /*
         "ᚠ", "ᚢ", "ᚦ", "ᚩ", "ᚱ", "ᚳ", "ᚷ", "ᚹ", "ᚻ", "ᚾ", "ᛁ", "ᛂ", "ᛇ", "ᛈ", "ᛉ", "ᛋ", "ᛏ",
         "ᛒ", "ᛖ", "ᛗ", "ᛚ", "ᛝ", "ᛟ", "ᛞ", "ᚪ", "ᚫ", "ᚣ", "ᛡ", "ᛠ"
     */
+
     // fill the alphabet
     struct GematriaLetter *F = new_GematriaLetter(0, 'F', 'ᚠ', 2, 109, 'ᛠ', 'EA', 20);
     struct GematriaLetter *U = new_GematriaLetter(1, 'U', 'ᚢ', 3, 107, 'ᛡ', 'IA', 20);
@@ -85,5 +86,73 @@ void init_gematria_alphabet()
     struct GematriaLetter *IO = new_GematriaLetter(27, 'IO', 'ᛡ', 107, 3, 'ᚢ', 'U', 20);
     struct GematriaLetter *EA = new_GematriaLetter(28, 'EA', 'ᛠ', 109, 2, 'ᚠ', 'F', 20);
 
+    // Initialize actual aplhabet array
     gemAlphabet[0] = *F;
+    gemAlphabet[1] = *U;
+    gemAlphabet[2] = *TH;
+    gemAlphabet[3] = *O;
+    gemAlphabet[4] = *R;
+    gemAlphabet[5] = *C;
+    gemAlphabet[6] = *K;
+    gemAlphabet[7] = *G;
+    gemAlphabet[8] = *W;
+    gemAlphabet[9] = *H;
+    gemAlphabet[10] = *N;
+    gemAlphabet[11] = *I;
+    gemAlphabet[12] = *J;
+    gemAlphabet[13] = *EO;
+    gemAlphabet[14] = *P;
+    gemAlphabet[15] = *X;
+    gemAlphabet[16] = *S;
+    gemAlphabet[17] = *Z;
+    gemAlphabet[18] = *T;
+    gemAlphabet[19] = *B;
+    gemAlphabet[20] = *E;
+    gemAlphabet[21] = *M;
+    gemAlphabet[22] = *L;
+    gemAlphabet[23] = *NG;
+    gemAlphabet[24] = *ING;
+    gemAlphabet[25] = *OE;
+    gemAlphabet[26] = *D;
+    gemAlphabet[27] = *A;
+    gemAlphabet[28] = *AE;
+    gemAlphabet[29] = *Y;
+    gemAlphabet[30] = *IA;
+    gemAlphabet[31] = *IO;
+    gemAlphabet[32] = *EA;
+
+    // Free memory
+    free(F);
+    free(U);
+    free(TH);
+    free(O);
+    free(R);
+    free(C);
+    free(K);
+    free(G);
+    free(W);
+    free(H);
+    free(N);
+    free(I);
+    free(J);
+    free(EO);
+    free(P);
+    free(X);
+    free(S);
+    free(Z);
+    free(T);
+    free(B);
+    free(E);
+    free(M);
+    free(L);
+    free(NG);
+    free(ING);
+    free(OE);
+    free(D);
+    free(A);
+    free(AE);
+    free(Y);
+    free(IA);
+    free(IO);
+    free(EA);
 }

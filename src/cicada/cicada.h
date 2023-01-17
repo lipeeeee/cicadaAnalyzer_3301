@@ -4,6 +4,11 @@
 // prime.c
 int isPrime(int *num);
 
+// gematria.c
+void init_gematria_alphabet();
+extern struct GematriaLetter *gemAlphabet;
+
+
 // blake2b hashing
 #include <stddef.h>
 #include <stdint.h>

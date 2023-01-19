@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 #include "cicada/cicada.h"
 #include "main.h"
 
@@ -14,6 +15,8 @@
 // Entry point
 int main(int argc, char const *argv[])
 {
+    setlocale(LC_ALL, "");
+
     char value[MAX_LENGTH_VALUE] = "";
     value[MAX_LENGTH_VALUE - 1] = '\0';
 
@@ -26,7 +29,6 @@ int main(int argc, char const *argv[])
         analyzeValue(value);
         getchar();
     }
-
     do
     {
         system("cls");

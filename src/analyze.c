@@ -33,14 +33,22 @@ char *computeHash(char *str)
     }
 
     return hex_hash;
-    free(hex_hash); 
+    free(hex_hash);
+}
+
+void computeGematria()
+{
+    struct GematriaLetter *gematria_alphabet = (struct GematriaLetter *)malloc(sizeof(struct GematriaLetter) * 1);
+    init_gematria_alphabet(gematria_alphabet);
+    printf("rune: %lc", gematria_alphabet[0].rune);
+
+    //free_gematria_alphabet(gematria_alphabet);
 }
 
 void analyzeString(char *str)
 {
-    // Analyzing blake2b hash function
+    // Blake2b
     char *hex_hash = computeHash(str);
-
     printf("Blake2B: %s\n", hex_hash);
 
     // compare the hex string and the computed hash
@@ -49,6 +57,9 @@ void analyzeString(char *str)
         printf("The hash matches the deepweb hash!!\n");
         printf("Notify someone in the cicadaSolvers discord immediatly with this string: %s", str);
     }
+
+    // Gematria
+    computeGematria();
 }
 
 void analyzeNumber(int num)

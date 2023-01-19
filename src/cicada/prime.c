@@ -1,5 +1,6 @@
 #include <math.h>
 #include "../main.h"
+#include "cicada.h"
 
 int isPrime(int *num)
 {

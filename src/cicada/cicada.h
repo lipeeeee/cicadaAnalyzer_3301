@@ -1,19 +1,50 @@
 #ifndef CICADA_H
 #define CICADA_H
 
-// prime.c
-int isPrime(int *num);
-
-// gematria.c
-void init_gematria_alphabet();
-extern struct GematriaLetter *gemAlphabet;
-
-
-// blake2b hashing
 #include <stddef.h>
 #include <stdint.h>
+#include "stdlib.h"
+#include "string.h"
+#include "wchar.h"
 
-// blake2b: deepweb hash
+/*
+    PRIMES
+*/
+int isPrime(int *num);
+
+/*
+    GEMATRIA PRIMUS
+*/
+#define MAX_TRANSLATIONS 2
+#define MAX_TRANSLATION_LENGTH 3
+
+struct GematriaLetter
+{
+    int order;
+    wchar_t rune;
+    int value;
+    int letter_count;
+    char **letter;
+    int atbash_order;
+    wchar_t atbash_rune;
+    int atbash_value;
+    int atbash_letter_count;
+    char **atbash_letter;
+};
+
+// constructor for the struct
+struct GematriaLetter create_gematria_letter(int order, wchar_t rune, int value, int letter_count, char (*letter)[MAX_TRANSLATION_LENGTH], int atbash_order, wchar_t atbash_rune, int atbash_value, int atbash_letter_count, char (*atbash_letter)[MAX_TRANSLATION_LENGTH]);
+
+// Handling the initialization of the gematria alphabet
+void init_gematria_alphabet(struct GematriaLetter *gematria_alphabet);
+
+// Handling the freeing of the gematria alphabet
+void free_gematria_alphabet(struct GematriaLetter *gematria_alphabet);
+
+/*
+    BLAKE2B
+*/
+// deepweb hash
 #define DEEPWEB_HASH "36367763ab73783c7af284446c59466b4cd653239a311cb7116d4618dee09a8425893dc7500b464fdaf1672d7bef5e891c6e2274568926a49fb4f45132c2a8b4"
 
 #if defined(_MSC_VER)
